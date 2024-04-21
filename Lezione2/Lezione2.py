@@ -130,3 +130,117 @@ for guest in guests:
 
 del guests[:]
 print(guests)
+
+
+
+#3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
+#• Store the locations in a list. Make sure the list is not in alphabetical order.
+#• Print your list in its original order. Don’t worry about printing the list neatly; just print it as a raw Python list.
+#• Use sorted() to print your list in alphabetical order without modifying the actual list.
+#• Show that your list is still in its original order by printing it.
+#• Use sorted() to print your list in reverse-alphabetical order without changing the order of the original list.
+#• Show that your list is still in its original order by printing it again.
+#• Use reverse()  to change the order of your list. Print the list to show that its order has changed.
+#• Use reverse() to change the order of your list again. Print the list to show it’s back to its original order.
+#• Use sort() to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed.
+#• Use sort() to change your list so it’s stored in reverse-alphabetical order.
+#Print the list to show that its order has changed.
+places = ['Tokyo', 'Parigi', 'Rio de Janeiro', 'Sydney', 'Roma']
+
+print("Lista originale:")
+print(places)
+
+print("\nOrdine alfabetico:")
+print(sorted(places))
+
+print("\nOrdine originale:")
+print(places)
+
+print("\nOrdine alfabetico al contrario:")
+print(sorted(places, reverse=True))
+
+print("\nOrdine originale:")
+print(places)
+
+print("\nAl contrario:")
+places.reverse()
+print(places)
+
+print("\nOrdine originale:")
+places.reverse()
+print(places)
+
+print("\nOrdine alfabetico:")
+places.sort()
+print(places)
+
+print("\nOrdine alfabetico al contrario:")
+places.sort(reverse=True)
+print(places)
+
+
+
+#3-9. Dinner Guests: Working with one of the programs from Exercises 3, 
+#use len() to print a message indicating the number of people you’re inviting to dinner.
+num_guests = len(guests)
+print(f'\nSto invitando {num_guests} persone per cena.\n')
+
+
+
+#3-10. Every Function: Think of things you could store in a list. For example, you could make a list of mountains, rivers, countries, cities, languages, or anything else you’d like. 
+#Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
+# Crea una lista di città
+cities = ['Roma', 'Parigi', 'Londra', 'Madrid', 'Berlino']
+
+# Usa len() per stampare il numero di città nella lista
+print(f'Ci sono {len(cities)} città nella lista.')
+
+# Usa sorted() per stampare la lista in ordine alfabetico
+print('Le città in ordine alfabetico sono:')
+print(sorted(cities))
+
+# Usa reverse() per invertire l'ordine della lista
+cities.reverse()
+print('Le città in ordine inverso sono:')
+print(cities)
+
+# Usa append() per aggiungere una città alla fine della lista
+cities.append('Barcellona')
+print('La lista aggiornata è:')
+print(cities)
+
+# Usa insert() per aggiungere una città in una posizione specifica della lista
+cities.insert(2, 'Amsterdam')
+print('La lista aggiornata è:')
+print(cities)
+
+# Usa remove() per rimuovere una città dalla lista
+cities.remove('Madrid')
+print('La lista aggiornata è:')
+print(cities)
+
+# Usa pop() per rimuovere e restituire l'ultima città dalla lista
+last_city = cities.pop()
+print(f'L\'ultima città rimossa è: {last_city}')
+print('La lista aggiornata è:')
+print(cities)
+
+# Usa index() per trovare l'indice di una città nella lista
+index = cities.index('Parigi')
+print(f'L\'indice di Parigi nella lista è: {index}')
+
+# Usa count() per contare il numero di occorrenze di una città nella lista
+count = cities.count('Roma')
+print(f'Il numero di occorrenze di Roma nella lista è: {count}')
+
+# Usa in per verificare se una città è presente nella lista
+if 'Milano' in cities:
+    print('Milano è presente nella lista.')
+else:
+    print('Milano non è presente nella lista.')
+
+# Usa not in per verificare se una città non è presente nella lista
+if 'New York' not in cities:
+    print('New York non è presente nella lista.')
+else:
+    print('New York è presente nella lista.')
