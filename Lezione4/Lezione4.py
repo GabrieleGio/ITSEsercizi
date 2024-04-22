@@ -45,4 +45,56 @@ def counter(s: str) -> list[int]:
     quarto = len(s.split("."))
     return [primo,secondo,terzo,quarto]
 print(counter(s))
-print(set(s.split()))
+
+def word_count(s: str) -> dict[str, int]:
+    """
+    Questa funzione conta il numero di occorrenza delle parole di una stringa
+    es: se la stringa è "ciao come stai. tutto bene. ciao io sto bene"
+    il risultato deve essere
+    {"ciao": 2, "come": 1, "stai" : 1, "tutto" : 1, "bene" : 2, "io" : 1, "sto" : 1}
+    """
+    parole: list[str] = s.split()
+    d: dict[str,int] = dict()
+    for parola in parole:
+        if parola not in d:
+            d[parola] = 1
+        else:
+            d[parola] = d[parola] + 1
+#filtra soltanto le parole che compaiono > 1 volta
+    d_filtered: dict[str, int] = dict()
+    for key in d:
+        if d[key] > 1:
+            d_filtered[key] = d[key]
+    return d_filtered
+
+s1 = "ciao come stai. tutto bene. ciao io sto bene"
+print(word_count(s1))
+
+print()
+print()
+
+def is_palindromo(s: str) -> bool:
+    """
+    Restituisce True se s è palindroma, altrimenti restituisce False
+    e.s. "Amo Roma" è una stringa palindroma
+    e.s. "ciao come stai?" non è una stringa palindroma
+    """
+    palindroma = bool
+    s: str = s.lower().replace(' ', '')
+    q = 0
+    p = -1
+    for l in s:
+        if s[q] == s[p]:
+            palindroma = True
+            q = q + 1
+            p = p - 1
+        else:
+            palindroma = False
+    return palindroma
+
+frase = "Amo Roma"
+print(is_palindromo(frase))
+frase1 = "Ciao come stai?"
+print(is_palindromo(frase1))
+frase3 = "I topi non avevano nipoti"
+print(is_palindromo(frase3))
