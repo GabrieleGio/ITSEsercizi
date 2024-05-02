@@ -100,3 +100,37 @@ def blackjack_hand_total(cards: list[int]) -> int:
     return valore
 print(blackjack_hand_total([2, 3, 5]))
 #risulato 10
+####################################################################
+def find_lhs(nums: list[int]) -> int:
+    for n in range(len(nums)):
+        for n in range(len(nums)):
+            print(n+n)
+
+print(find_lhs([1,3,2,2,5,2,3,7]))
+print()
+##################################################################
+def is_subsequence(s: str, t: str) -> bool:
+    risultato = False
+    s_grande = ""
+    s_piccola = ""
+    if len(s) > len(t):
+        s_grande = list(s)
+        s_piccola = list(t)
+    elif len(s) < len(t):
+        s_grande = list(t)
+        s_piccola = list(s)
+    else:
+        s_grande = list(t)
+        s_piccola = list(s)
+
+
+
+print(is_subsequence("abc", "ahbgdc"))
+print(is_subsequence("axc", "ahbgdc"))
+print(is_subsequence("abc", "abcde"))
+print(is_subsequence("abc", "abecfd"))
+print(is_subsequence("abc", "cab"))
+print("-------------")
+print(is_subsequence("", "ahbgdc"))
+print(is_subsequence("abc", ""))
+print(is_subsequence("", ""))
