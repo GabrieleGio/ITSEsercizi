@@ -62,3 +62,10 @@ right_neighbour = Student("Francesco","Cybersecurity")
 myself.set_age(20)
 myself.set_gender("Maschio")
 myself.printInfo()
+
+class Animal:
+    def __init__(self,name,legs):
+        self.name = name
+        self.legs = legs
+    
+    
