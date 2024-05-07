@@ -39,19 +39,26 @@ print()
 print()
 
 class Student:
-    def __init__(self,name,age,studyProgram):
+    def __init__(self,name,studyProgram):
         self.name = name
-        self.age = age
         self.studyProgram = studyProgram
+        self.age = None
+        self.gender = None
 
     def printInfo(self):
-        return print(f"Il nome è {self.name}, l'età è {self.age} anni e il programma di studi è {self.studyProgram} ")
+        return print(f"Il nome è {self.name}, l'età è {self.age} anni, il gender è {self.gender}, e il programma di studi è {self.studyProgram} ")
+    
+    def set_age(self, new_age):
+        self.age = new_age
+
+    def set_gender(self, new_gender):
+        self.gender = new_gender
         
     
-myself = Student("Gabriele",20,"Cloud")
-left_neighbour = Student("Marco",22,"FullStack Developer")
-right_neighbour = Student("Francesco",23,"Cybersecurity")
+myself = Student("Gabriele","Cloud")
+left_neighbour = Student("Marco","FullStack Developer")
+right_neighbour = Student("Francesco","Cybersecurity")
 
+myself.set_age(20)
+myself.set_gender("Maschio")
 myself.printInfo()
-myself.age = 25
-    
