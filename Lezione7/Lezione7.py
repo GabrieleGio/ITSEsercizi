@@ -22,7 +22,14 @@ class Menu:
         self.lista_cibi = []
 
     def addFood(self,food):
-        self.lista_cibi.append(food)
+        #con count,for e if facciamo una funzione che controlla se il nome del cibo è gia presente in modo da non aggiungerlo
+        #poi ho messo anche lower() per evitare nomi uguali ma con caratteri maiuscoli / minuscoli
+        count = 0
+        for x in self.lista_cibi:
+            if x.name.lower() == food.name.lower():
+                count = count + 1 
+        if count == 0:
+            self.lista_cibi.append(food)
 
     def removeFood(self,food):
         self.lista_cibi.pop(food)
@@ -37,15 +44,20 @@ class Menu:
             somma += food.price
         media = somma / len(self.lista_cibi)
         print(f"La media dei prezzi del menù è {media} euro")
+        return media
     
     
 menu = Menu()
 pizza = Food("Pizza",8,"very good for dinner")
 pasta = Food("Pasta",12,"very good for launch")
 milk = Food("Milk",4,"very good for breakfast")
+altrapizza = Food("Pizza",9,"very good for dinner")
+pizzapiccola = Food("pizza",10,"blabla")
 
 menu.addFood(pizza)
 menu.addFood(pasta)
+menu.addFood(altrapizza)
+menu.addFood(pizzapiccola)
 menu.printPrices()
 menu.getAveragePrice()
 
