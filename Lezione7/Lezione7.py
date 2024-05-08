@@ -11,6 +11,8 @@
 #7. Add a Menu method getAveragePrice() that returns the average Food
 #price of the Menu
 
+#In questo esercizio vedremo anche come comunicano tra di loro 2 oggetti
+
 class Food:
     def __init__(self,name,price,description):
         self.name = name
@@ -30,6 +32,8 @@ class Menu:
                 count = count + 1 
         if count == 0:
             self.lista_cibi.append(food)
+        if count != 0:
+            print(f"{food.name} non aggiunto perchè già presente")
 
     def removeFood(self,food):
         self.lista_cibi.pop(food)
