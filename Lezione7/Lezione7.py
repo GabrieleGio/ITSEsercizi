@@ -50,7 +50,7 @@ class Menu:
         print(f"La media dei prezzi del menù è {media} euro")
         return media
     
-    
+    ######### ISTANZE #######
 menu = Menu()
 pizza = Food("Pizza",8,"very good for dinner")
 pasta = Food("Pasta",12,"very good for launch")
