@@ -1,7 +1,13 @@
 class Zoo:
-    def __init__(self,fences=[],zoo_keepers=[]):
-        self.fences = fences
-        self.zoo_keepers = zoo_keepers
+    def __init__(self, fences=None, zoo_keepers=None):
+        if fences is None:
+            self.fences = []
+        else:
+            self.fences = fences
+        if zoo_keepers is None:
+            self.zoo_keepers = []
+        else:
+            self.zoo_keepers = zoo_keepers
 
     def __str__(self):
         zoo_str = "Zoo: \n"
@@ -26,11 +32,14 @@ class Animal:
         self.health = health
 
 class Fence:
-    def __init__(self,area,temperature,habitat,animals = []):
+    def __init__(self, area, temperature, habitat, animals=None):
         self.area = area
         self.temperature = temperature
         self.habitat = habitat
-        self.animals = animals
+        if animals is None:
+            self.animals = []
+        else:
+            self.animals = animals
 
 class ZooKeeper:
     def __init__(self,nome,cognome,id):
@@ -52,7 +61,15 @@ class ZooKeeper:
     def clean(self, fence: Fence):
         pass
 
-
+################################# ERRORI CORRETTI (CANCELLARE ALLA FINE)########################################
+"""
+class Fence:
+    def __init__(self,area,temperature,habitat,animals = []):
+        self.area = area
+        self.temperature = temperature
+        self.habitat = habitat
+        self.animals = animals
+"""
 ################################# ZONA TEST (CANCELLARE ALLA FINE)#######################################
 zoo1 = Zoo()
 recinto1 = Fence(50,35,"Savana")
