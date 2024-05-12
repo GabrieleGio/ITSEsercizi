@@ -52,6 +52,10 @@ class ZooKeeper:
             if animal.preferred_habitat == fence.habitat:
                 fence.animals.append(animal)
     
+    def add_fence(self, fence: Fence):
+        if fence not in self.zoo.fences:
+            self.zoo.add_fence(fence)
+    
     def remove_animal(self, animal: Animal, fence: Fence):
         pass
 
