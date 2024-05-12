@@ -10,8 +10,8 @@ class Zoo:
             self.zoo_keepers = zoo_keepers
 
     def __str__(self):
-        zoo_str = "Zoo: \n"
-        for i,recinto in enumerate(self.fences,1):
+        zoo_str = "Zoo:\n"
+        for i, recinto in enumerate(self.fences):
             zoo_str += f"Recinto {i}:\n"
             for animale in recinto.animals:
                 zoo_str += f"-{animale.name}\n"
