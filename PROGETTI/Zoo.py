@@ -99,11 +99,19 @@ class ZooKeeper:
             print(f"Impossibile dare da mangiare a {animal.name} perchè non è nel recinto")
 
     def clean(self, fence: Fence):
+        areaoccupata = 0
+        tempopulizia = 0
         if fence.animals and fence.vuoto == False:
+            if fence.current_area > 0:
+                areaoccupata = fence.area - fence.current_area
+                tempopulizia = areaoccupata / fence.current_area
+            elif fence.current_area == 0:
+                areaoccupata = fence.area - fence.current_area
+                print(f"Area occupata: {areaoccupata}")
             fence.animals = []
             fence.vuoto = True
             fence.current_area = fence.area
-            print(f"{fence.habitat} pulita correttamente, area disponibile: {fence.area}")
+            print(f"{fence.habitat} pulita correttamente in {tempopulizia} secondi, area disponibile: {fence.area}")
         else:
             print(f'Il recinto {fence.habitat} è già vuoto')
 
@@ -124,6 +132,8 @@ leone = Animal("Leone","Leonis",7,100,40,"Savana")
 pinguino = Animal("Pinguino","Pingu",3,40,10,"Glaciale")
 pantera = Animal("Pantera","Pantheras",5,100,100,"Savana")
 animalebig = Animal("Enorme","Enorme",9999,9999,9999,"Savana")
+animaleriempisavana = Animal("Fullsavana","Fullsavana",999,9999,1000,"Savana")
+animaleriempigiungla = Animal("Fullgiungla","Fullgiungla",999,9999,2000,"Giungla")
 guardiano1 = ZooKeeper("Mario","Rossi",1312)
 guardiano1.add_animal(tigre,recinto1)
 guardiano1.add_animal(scimmia,recinto2)
@@ -151,6 +161,9 @@ print(zoo1)
 guardiano1.clean(recinto1)
 guardiano1.clean(recinto1)
 print(zoo1)
+guardiano1.add_animal(animaleriempisavana,recinto1)
+print(zoo1)
+guardiano1.clean(recinto1)
 
 
 
