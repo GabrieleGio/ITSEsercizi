@@ -30,6 +30,8 @@ class Animal:
         self.width = width
         self.preferred_habitat = preferred_habitat
         self.health = round(100 * (1 / age), 3)
+        self.current_fence_area = None
+
 
 class Fence:
     def __init__(self, area, temperature, habitat, animals=None):
@@ -40,28 +42,27 @@ class Fence:
             self.animals = []
         else:
             self.animals = animals
+        self.current_area = area
 
 class ZooKeeper:
     def __init__(self,nome,cognome,id):
         self.nome = nome
         self.cognome = cognome
         self.id = id
-
+    
     def add_animal(self, animal: Animal, fence: Fence):
+        animal.current_fence_area = fence.current_area
         if animal not in fence.animals:
-            if fence.area >= animal.width:
+            if fence.current_area >= animal.width:
                 if animal.preferred_habitat == fence.habitat:
                     fence.animals.append(animal)
-                    fence.area = fence.area - animal.width
+                    fence.current_area = fence.current_area - animal.width
     
-    def add_fence(self, fence: Fence):
-        if fence not in self.zoo.fences:
-            self.zoo.add_fence(fence)
     
     def remove_animal(self, animal: Animal, fence: Fence):
         if animal in fence.animals:
             fence.animals.remove(animal)
-            fence.area = fence.area + animal.width
+            fence.current_area = fence.current_area + animal.width
 
     def feed(self, animal: Animal):
         if animal.width * 1.02 <= 
