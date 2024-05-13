@@ -31,6 +31,7 @@ class Animal:
         self.preferred_habitat = preferred_habitat
         self.health = round(100 * (1 / age), 3)
         self.current_fence_area = None
+        self.nelrecinto = False
 
 
 class Fence:
@@ -43,6 +44,7 @@ class Fence:
         else:
             self.animals = animals
         self.current_area = area
+        self.vuoto = True
 
 class ZooKeeper:
     def __init__(self,nome,cognome,id):
@@ -58,6 +60,8 @@ class ZooKeeper:
                     fence.animals.append(animal)
                     fence.current_area = fence.current_area - animal.width
                     animal.current_fence_area = fence.current_area
+                    animal.nelrecinto = True
+                    fence.vuoto = False
                     print(f"{animal.name} aggiunto correttamente a {fence.habitat}, area del recinto rimanente: {animal.current_fence_area}")
                 else:
                     print(f"Habitat sbagliato per {animal.name}")
@@ -69,32 +73,40 @@ class ZooKeeper:
     
     
     def remove_animal(self, animal: Animal, fence: Fence):
-        if animal in fence.animals:
+        if animal in fence.animals and animal.nelrecinto == True:
             fence.animals.remove(animal)
             fence.current_area = fence.current_area + animal.width
+            animal.nelrecinto = False
+            print(f"{animal.name} rimosso/a da {fence.habitat}, nuova area del recinto: {fence.current_area}")
+        else:
+            print(f"Impossibile rimuovere {animal.name} perchè non è in un recinto")
+
+        if fence.animals == []:
+            fence.vuoto = True
 
     def feed(self, animal: Animal):
-        if animal.width * 1.02 <= animal.current_fence_area:
-            animal.health = animal.health * 1.01
-            animal.width = animal.width * 1.02
-            animal.current_fence_area = animal.current_fence_area - (animal.width * 1.02 - animal.width)
-            print(f'{animal.name} nutrito/a correttamente, salute attuale: {animal.health}, larghezza attuale: {animal.width}\n')
-            print(f'Area del recinto rimanente: {animal.current_fence_area}')
+        if animal.nelrecinto == True:
+            if animal.width * 1.02 <= animal.current_fence_area:
+                animal.health = animal.health * 1.01
+                animal.width = animal.width * 1.02
+                animal.current_fence_area = animal.current_fence_area - (animal.width * 1.02 - animal.width)
+                print(f'{animal.name} nutrito/a correttamente, salute attuale: {animal.health}, larghezza attuale: {animal.width}\n')
+                print(f'Area del recinto rimanente: {animal.current_fence_area}')
+            else:
+                print(f'Impossibile dare da mangiare a {animal.name}, non entrerebbe nel recinto')
         else:
-            print(f'Impossibile dare da mangiare a {animal.name}, non entrerebbe nel recinto')
+            print(f"Impossibile dare da mangiare a {animal.name} perchè non è nel recinto")
 
     def clean(self, fence: Fence):
-        pass
+        if fence.animals and fence.vuoto == False:
+            fence.animals = []
+            fence.vuoto = True
+            fence.current_area = fence.area
+            print(f"{fence.habitat} pulita correttamente, area disponibile: {fence.area}")
+        else:
+            print(f'Il recinto {fence.habitat} è già vuoto')
 
-################################# ERRORI CORRETTI (CANCELLARE ALLA FINE)########################################
-"""
-class Fence:
-    def __init__(self,area,temperature,habitat,animals = []):
-        self.area = area
-        self.temperature = temperature
-        self.habitat = habitat
-        self.animals = animals
-"""
+
 ################################# ZONA TEST (CANCELLARE ALLA FINE)#######################################
 zoo1 = Zoo()
 recinto1 = Fence(1000,35,"Savana")
@@ -120,6 +132,23 @@ guardiano1.add_animal(pinguino,recinto2)
 guardiano1.add_animal(pantera,recinto1)
 guardiano1.feed(pantera)
 guardiano1.feed(pantera)
+print(zoo1)
+guardiano1.clean(recinto1)
+print(zoo1)
+guardiano1.add_animal(tigre,recinto1)
+guardiano1.add_animal(animalebig,recinto1)
+guardiano1.add_animal(leone,recinto1)
+guardiano1.feed(leone)
+guardiano1.feed(leone)
+print(zoo1)
+guardiano1.remove_animal(leone,recinto1)
+guardiano1.remove_animal(scimmia,recinto2)
+guardiano1.feed(scimmia)
+guardiano1.add_animal(scimmia,recinto2)
+guardiano1.remove_animal(pinguino,recinto2)
+print(zoo1)
+guardiano1.clean(recinto1)
+guardiano1.clean(recinto1)
 print(zoo1)
 
 
