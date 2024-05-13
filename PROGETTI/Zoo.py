@@ -100,7 +100,7 @@ class ZooKeeper:
 
     def clean(self, fence: Fence):
         areaoccupata = 0
-        tempopulizia = 0
+        tempopulizia = 100
         if fence.animals and fence.vuoto == False:
             if fence.current_area > 0:
                 areaoccupata = fence.area - fence.current_area
@@ -164,6 +164,11 @@ print(zoo1)
 guardiano1.add_animal(animaleriempisavana,recinto1)
 print(zoo1)
 guardiano1.clean(recinto1)
+print(zoo1)
+guardiano1.remove_animal(scimmia,recinto2)
+print(zoo1)
+print(recinto1.vuoto)
+print(recinto2.vuoto)
 
 
 
