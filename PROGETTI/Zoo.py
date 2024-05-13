@@ -77,6 +77,9 @@ class ZooKeeper:
         if animal.width * 1.02 <= animal.current_fence_area:
             animal.health = animal.health * 1.01
             animal.width = animal.width * 1.02
+            animal.current_fence_area = animal.current_fence_area - (animal.width * 1.02 - animal.width)
+            print(f'{animal.name} nutrito/a correttamente, salute attuale: {animal.health}, larghezza attuale: {animal.width}\n')
+            print(f'Area del recinto rimanente: {animal.current_fence_area}')
         else:
             print(f'Impossibile dare da mangiare a {animal.name}, non entrerebbe nel recinto')
 
@@ -106,11 +109,17 @@ tigre = Animal("Tigre","Panthera Tigris",3,110,30,"Savana")
 scimmia = Animal("Scimmia","boh",4,50,10,"Giungla")
 leone = Animal("Leone","Leonis",7,100,40,"Savana")
 pinguino = Animal("Pinguino","Pingu",3,40,10,"Glaciale")
+pantera = Animal("Pantera","Pantheras",5,100,100,"Savana")
 animalebig = Animal("Enorme","Enorme",9999,9999,9999,"Savana")
 guardiano1 = ZooKeeper("Mario","Rossi",1312)
 guardiano1.add_animal(tigre,recinto1)
 guardiano1.add_animal(scimmia,recinto2)
 guardiano1.add_animal(animalebig,recinto1)
+guardiano1.add_animal(leone,recinto1)
+guardiano1.add_animal(pinguino,recinto2)
+guardiano1.add_animal(pantera,recinto1)
+guardiano1.feed(pantera)
+guardiano1.feed(pantera)
 print(zoo1)
 
 
