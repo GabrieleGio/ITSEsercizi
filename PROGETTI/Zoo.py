@@ -62,7 +62,6 @@ class ZooKeeper:
         if animal in fence.animals:
             fence.animals.remove(animal)
             fence.area = fence.area + animal.width
-        pass
 
     def feed(self, animal: Animal):
         pass
