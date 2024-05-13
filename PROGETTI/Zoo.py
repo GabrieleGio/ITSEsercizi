@@ -64,6 +64,9 @@ class ZooKeeper:
             fence.area = fence.area + animal.width
 
     def feed(self, animal: Animal):
+        if animal.width * 1.02 <= 
+        animal.health = animal.health * 1.01
+        animal.width = animal.width * 1.02
         pass
 
     def clean(self, fence: Fence):
