@@ -13,6 +13,9 @@
 
 #In questo esercizio vedremo anche come comunicano tra di loro 2 oggetti
 
+from typing import Any
+
+
 class Food:
     def __init__(self,name,price,description):
         self.name = name
@@ -50,6 +53,7 @@ class Menu:
         print(f"La media dei prezzi del menù è {media} euro")
         return media
     
+    
     ######### ISTANZE #######
 menu = Menu()
 pizza = Food("Pizza",8,"very good for dinner")
@@ -64,4 +68,3 @@ menu.addFood(altrapizza)
 menu.addFood(pizzapiccola)
 menu.printPrices()
 menu.getAveragePrice()
-
