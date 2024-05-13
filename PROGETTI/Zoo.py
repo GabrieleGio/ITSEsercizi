@@ -89,6 +89,7 @@ class ZooKeeper:
             if animal.width * 1.02 <= animal.current_fence_area:
                 animal.health = animal.health * 1.01
                 animal.width = animal.width * 1.02
+                animal.height = animal.height * 1.02
                 animal.current_fence_area = animal.current_fence_area - (animal.width * 1.02 - animal.width)
                 print(f'{animal.name} nutrito/a correttamente, salute attuale: {animal.health}, larghezza attuale: {animal.width}\n')
                 print(f'Area del recinto rimanente: {animal.current_fence_area}')
