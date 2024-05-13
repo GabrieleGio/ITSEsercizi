@@ -59,6 +59,13 @@ class ZooKeeper:
                     fence.current_area = fence.current_area - animal.width
                     animal.current_fence_area = fence.current_area
                     print(f"{animal.name} aggiunto correttamente a {fence.habitat}, area del recinto rimanente: {animal.current_fence_area}")
+                else:
+                    print(f"Habitat sbagliato per {animal.name}")
+            else:
+                print(f"Spazio nel recinto insufficiente per aggiungere {animal.name}")
+        else:
+            print(f"L'animale {animal.name} è già presente nel recinto")
+
     
     
     def remove_animal(self, animal: Animal, fence: Fence):
@@ -70,6 +77,8 @@ class ZooKeeper:
         if animal.width * 1.02 <= animal.current_fence_area:
             animal.health = animal.health * 1.01
             animal.width = animal.width * 1.02
+        else:
+            print(f'Impossibile dare da mangiare a {animal.name}, non entrerebbe nel recinto')
 
     def clean(self, fence: Fence):
         pass
@@ -95,10 +104,14 @@ zoo1.fences.append(recinto2)
 
 tigre = Animal("Tigre","Panthera Tigris",3,110,30,"Savana")
 scimmia = Animal("Scimmia","boh",4,50,10,"Giungla")
+leone = Animal("Leone","Leonis",7,100,40,"Savana")
+pinguino = Animal("Pinguino","Pingu",3,40,10,"Glaciale")
 animalebig = Animal("Enorme","Enorme",9999,9999,9999,"Savana")
 guardiano1 = ZooKeeper("Mario","Rossi",1312)
 guardiano1.add_animal(tigre,recinto1)
 guardiano1.add_animal(scimmia,recinto2)
 guardiano1.add_animal(animalebig,recinto1)
 print(zoo1)
+
+
 
