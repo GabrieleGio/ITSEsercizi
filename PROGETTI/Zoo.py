@@ -92,7 +92,7 @@ class Fence:
         self.habitat = habitat
         self.animals = animals
 """
-################################# ZONA TEST (CANCELLARE ALLA FINE)#######################################
+################################## ZONA TEST (CANCELLARE ALLA FINE)#######################################
 zoo1 = Zoo()
 recinto1 = Fence(1000,35,"Savana")
 recinto2 = Fence(2000,20,"Giungla")
