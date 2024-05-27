@@ -7,7 +7,7 @@ numero_random = random.randint(1,10)
 print(percorso)
 
 def calcola_tartaruga(percorso:list):
-    numero_random = random.randint(1,10)
+    numero_random = 6
     if tartaruga not in percorso:
         #Passo veloce
         if 1 <= numero_random <= 5:
@@ -35,19 +35,22 @@ def calcola_tartaruga(percorso:list):
         #Scivolata
         elif 6 <= numero_random <= 7:
             if percorso.index(tartaruga) - 6 < 0:
-                percorso.pop(percorso.index(tartaruga))
-                percorso.insert(percorso.index(tartaruga),"-")
+                index=percorso.index(tartaruga)
+                percorso.pop(index)
+                percorso.insert(index,"-")
                 percorso.pop(0)
                 percorso.insert(0,tartaruga)
             else:
+                indice = percorso.index(tartaruga)
                 nuovoindice = percorso.index(tartaruga) - 6
-                percorso.pop(percorso.index(tartaruga))
+                percorso.pop(indice)
                 percorso.insert(percorso.index(tartaruga),"-")
                 percorso.pop(nuovoindice)
                 percorso.insert(nuovoindice,tartaruga)
         
         #Passo lento
         elif 8 <= numero_random <= 10:
+            indice = percorso.index(tartaruga)
             nuovoindice = percorso.index(tartaruga) + 1
             percorso.pop(percorso.index(tartaruga))
             percorso.insert(percorso.index(tartaruga),"-")
@@ -57,6 +60,12 @@ def calcola_tartaruga(percorso:list):
 
 print("#########################################")
 print(len(percorso))
+calcola_tartaruga(percorso)
+print(percorso)
+print(len(percorso))
+print("")
+print("################ DI NUOVO ################")
+print("")
 calcola_tartaruga(percorso)
 print(percorso)
 print(len(percorso))
