@@ -154,10 +154,8 @@ def calcola_lepre(percorso: list):
                 percorso.insert(nuovoindice2,lepre)
     return percorso
 
-calcola_tartaruga(percorso)
-calcola_lepre(percorso)
 
-
+"""
 while True:
     calcola_tartaruga(percorso)
     indiceT = percorso.index(tartaruga)
@@ -166,6 +164,8 @@ while True:
     if indiceL == indiceT:
         percorso.pop(indiceL)
         percorso.insert()
+"""
+
 
 print("#########################################")
 print(len(percorso))
