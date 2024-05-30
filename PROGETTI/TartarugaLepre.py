@@ -12,19 +12,24 @@ def visualizza_posizioni(pos_tartaruga, pos_lepre):
 
 
 def muovi_tartaruga():
+    stamina_tartaruga = 100
     i = random.randint(1, 10)
     #Passo veloce
     if 1 <= i <= 5:
+        stamina_tartaruga -= 5
         return 3
     #Scivolata
     elif 6 <= i <= 7:
+        stamina_tartaruga -= 10
         return -6
     #Passo lento
     else:
+        stamina_tartaruga -= 3
         return 1
 
 
 def muovi_lepre():
+    stamina_lepre = 100
     i = random.randint(1, 10)
     #Grande balzo
     if 1 <= i <= 2:
@@ -111,5 +116,4 @@ while pos_tartaruga < 70 and pos_lepre < 70:
     cambiamentometeo = False
     print(tick)
 
-    #Vedere quando disattivare cambiamento meteo True
     
