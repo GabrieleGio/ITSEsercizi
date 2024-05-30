@@ -26,14 +26,21 @@ def muovi_tartaruga():
 
 def muovi_lepre():
     i = random.randint(1, 10)
-    if i == 1:
+    #Grande balzo
+    if 1 <= i <= 2:
         return 9
-    elif 2 <= i <= 3:
+    #Grande scivolata
+    elif i == 3:
         return -12
+    #Piccolo balzo
     elif 4 <= i <= 6:
         return 1
-    else:
+    #Piccola scivolata
+    elif 7 <= i <= 8:
         return -2
+    #Riposo
+    else:
+        return 0
 
 
 pos_tartaruga = 1
