@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase
-from src.Zoo import Zoo, ZooKeeper, Animal, Fence
+from src.zoo import Zoo, ZooKeeper, Animal, Fence
 
 class TestZoo(TestCase):
     def setUp(self) -> None:
@@ -13,7 +13,7 @@ class TestZoo(TestCase):
         self.zookeeper_l.add_animal(self.animal_l, self.fence_l)
         result: int = len(self.fence_l.animals)
         message: str = f"Error: the function add_animal should not add self.animal_l into self.fence_l"
-        self.assertEqual(result, 1, message)
+        self.assertEqual(result, 0, message)
 
     def test_remove(self):
         lenlist:int = len(self.fence_l.animals)
@@ -22,6 +22,7 @@ class TestZoo(TestCase):
         result: int = lenlist
         message: str = f"Error: the function remove animal doesn't work"
         self.assertEqual(result, lenlist, message) 
+
 
 if __name__ == "__main__":
     unittest.main()
