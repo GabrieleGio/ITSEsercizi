@@ -1,5 +1,5 @@
 import unittest
-from PROGETTI.calc import Calculations
+from PROGETTI_DISORDINATI.calc import Calculations
 
 
 class TestCalc(unittest.TestCase):
