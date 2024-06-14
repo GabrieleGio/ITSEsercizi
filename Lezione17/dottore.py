@@ -47,8 +47,10 @@ class Dottore(Persona):
         cognome = self.getLastname()
         if age >= 30:
             print(f"Doctor {nome} {cognome} is a valid doctor.")
+            return True
         else:
             print(f"Doctor {nome} {cognome} is NOT a valid doctor!")
+            return False
 
 dottore1 = Dottore("Francesco","Totti","Pediatra",321.00)
 dottore1.setAge(41)
