@@ -64,8 +64,8 @@ class Triangolo(Forma):
     
     def render(self):
         print("*")
-        for i in range(2,self.cateto2):
-            print("*",end=" " * (i-1) +"*\n")
+        for i in range(0,self.cateto2-2):
+            print("*",end=" " * (i+1) +"*\n")
         print("*" * self.cateto1)
 
 
