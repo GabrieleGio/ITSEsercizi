@@ -62,19 +62,65 @@ print(anagramma("NeurIPS","UniReps"))
 #             create_account(account_id): crea un nuovo account con l'ID specificato e un saldo pari a 0.
 #             deposit(account_id, amount): deposita l'importo specificato sul conto con l'ID fornito.
 #             get_balance(account_id): restituisce il saldo del conto con l'ID specificato.
-account_usati = []
-alfabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-account_id = alfabeto[random.randint(0,25)] + str(random.randint(1,9999))
-while account_id in account_usati:
-        account_id = alfabeto[random.randint(0,25)] + str(random.randint(1,9999))
 
-print(account_id)
-print(account_usati)
+# account_usati = []
+# alfabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+# def generatore_account_unico():
+#     while True:
+#         account_id = alfabeto[random.randint(0,25)] + str(random.randint(1,9999))
+#         if account_id not in account_usati:
+#             account_usati.append(account_id)
+#             return account_id
+
 class Account:
-    def __init__(self) -> None:
-        self.account_id = alfabeto[random.randint(0,25)] + str(random.randint(1,9999))
-        while self.account_id in account_usati:
-            self.account_id = alfabeto[random.randint(0,25)] + str(random.randint(1,9999))
-            
+    def __init__(self,account_id,balance) -> None:
+        self.account_id: str = account_id
+        self.balance: float = balance
+    
+    def deposit(self,amount: float):
+        self.amount = amount
+        self.balance = self.balance + self.amount
 
-        pass
+    def get_balance(self):
+        return self.balance
+    
+    def __str__(self):
+        return self.account_id,self.balance
+    
+class Bank:
+    def __init__(self) -> None:
+        self.accounts: dict[str,Account] = {}
+
+    def create_account(self,account_id):
+        self.account = Account(account_id,0)
+        if account_id not in self.accounts.keys():
+            self.accounts[account_id] = self.account
+        else:
+            print("Errore, l'account esiste già")
+    
+    def deposit(self,account_id, amount):
+        if account_id in self.accounts.keys():
+            self.accounts[account_id].deposit(amount)
+        else:
+            print(f"Errore, l'account {account_id} non esiste")
+
+    def get_balance(self,account_id):
+        if account_id in self.accounts.keys():
+            return self.accounts[account_id].balance
+        else:
+            print(f"Errore, l'account {account_id} non esiste")
+
+    def __str__(self) -> str:
+        
+        return str(self.accounts)
+
+bank1 = Bank()
+bank1.create_account("B456")
+print(bank1)
+account1 = Account("A123","15")
+
+
+        
+
+
+    
