@@ -50,3 +50,9 @@ def lista_a_dizionario(tuples: list[tuple]) -> dict[str:list[int]]:
 
 lista1 = [("ciao","marco"),(20,"sium")]
 lista_a_dizionario(lista1)
+
+#Scrivi una funzione che prenda un dizionario e un valore, e ritorni la prima chiave che corrisponde a quel valore, o None se il valore non è presente.
+def trova_chiave_per_valore(dizionario: dict[str: int], valore: int) -> str:
+    for k,v in dizionario.items():  
+        if dizionario[k] == valore:
+            return v 

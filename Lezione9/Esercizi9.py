@@ -97,16 +97,17 @@ class Bank:
             self.accounts[account_id] = self.account
         else:
             print("Errore, l'account esiste già")
+        return self.account
     
     def deposit(self,account_id, amount):
         if account_id in self.accounts.keys():
-            self.accounts[account_id].deposit(amount)
+            self.accounts.balance += amount
         else:
             print(f"Errore, l'account {account_id} non esiste")
 
     def get_balance(self,account_id):
-        if account_id in self.accounts.keys():
-            return self.accounts[account_id].balance
+        if account_id in self.accounts:
+            return self.accounts.balance
         else:
             print(f"Errore, l'account {account_id} non esiste")
 
