@@ -55,4 +55,4 @@ lista_a_dizionario(lista1)
 def trova_chiave_per_valore(dizionario: dict[str: int], valore: int) -> str:
     for k,v in dizionario.items():  
         if dizionario[k] == valore:
-            return v 
+            return v
